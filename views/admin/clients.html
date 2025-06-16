@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>إدارة العملاء</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <style>
+    body { font-family: Tahoma, sans-serif; direction: rtl; background-color: #f8f9fa; }
+    .container { max-width: 1100px; margin-top: 30px; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+    th, td { vertical-align: middle !important; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mb-4">👥 إدارة بيانات العملاء</h2>
+
+  <table class="table table-bordered table-striped align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>رقم</th>
+        <th>الاسم</th>
+        <th>رقم الهاتف</th>
+        <th>نوع المنتج</th>
+        <th>الحالة</th>
+        <th>تعديل</th>
+      </tr>
+    </thead>
+    <tbody id="clientsTable">
+      <tr><td colspan="6">جاري التحميل...</td></tr>
+    </tbody>
+  </table>
+
+  <div class="text-center mt-4">
+    <a href="/admin/dashboard" class="btn btn-outline-secondary">🔙 العودة للوحة التحكم</a>
+  </div>
+</div>
+
+<script>
+  function updateStatus(clientID) {
+    const status = document.getElementById("status_" + clientID).value;
+
+    fetch("/admin/update-status", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: clientID, status })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert("✅ تم تحديث الحالة");
+      } else {
+        alert("❌ فشل التحديث");
+      }
+    });
+  }
+
+  fetch('/admin/clients')
+    .then(res => res.json())
+    .then(data => {
+      const tbody = document.getElementById("clientsTable");
+      tbody.innerHTML = "";
+
+      data.clients.forEach((client, i) => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${i + 1}</td>
+            <td>${client.firstName || ''} ${client.lastName || ''}</td>
+            <td>${client.phone || '-'}</td>
+            <td>${client.productType || '-'}</td>
+            <td>
+              <select id="status_${client.id}" class="form-select form-select-sm">
+                <option ${client.status === 'قيد المعالجة' ? 'selected' : ''}>قيد المعالجة</option>
+                <option ${client.status === 'تم الشراء' ? 'selected' : ''}>تم الشراء</option>
+                <option ${client.status === 'مرفوض' ? 'selected' : ''}>مرفوض</option>
+              </select>
+            </td>
+            <td>
+              <button class="btn btn-sm btn-primary" onclick="updateStatus('${client.id}')">💾 حفظ</button>
+            </td>
+          </tr>
+        `;
+      });
+    });
+</script>
+
+</body>
+</html>

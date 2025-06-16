@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: "API Klienku CRM (ID)"
+  version: "1.0.0"
+paths:
+  /clients:
+    post:
+      summary: "Tambahkan Klien Baru"
+      description: "Kirim data klien untuk disimpan dalam sistem"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  example: "Ali"
+                lastName:
+                  type: string
+                  example: "Pratama"
+                nationality:
+                  type: string
+                  example: "Indonesia"
+                phone:
+                  type: string
+                  example: "+628123456789"
+                email:
+                  type: string
+                  example: "klien@example.com"
+                product:
+                  type: string
+                  example: "Paket Properti"
+                referralCode:
+                  type: string
+                  example: "AGT2024"
+                notes:
+                  type: string
+                  example: "Berminat membeli di bulan depan"
+      responses:
+        '201':
+          description: "Klien berhasil ditambahkan"
+        '500':
+          description: "Terjadi kesalahan server"

@@ -1,0 +1,14 @@
+[
+  {
+    "agentID": "A001",
+    "agentName": "أحمد العلي",
+    "points": 50,
+    "suggestedReward": "قسيمة شرائية بقيمة 100 ريال"
+  },
+  {
+    "agentID": "B001",
+    "agentName": "فاطمة الحربي",
+    "points": 30,
+    "suggestedReward": "هدية تذكارية"
+  }
+]

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client Registration Form</title>
+</head>
+<body>
+  <h1>Client Registration Form</h1>
+  <form action="/clients" method="POST">
+    <input type="text" name="firstName" placeholder="First Name" required><br>
+    <input type="text" name="lastName" placeholder="Last Name" required><br>
+    <input type="text" name="nationality" placeholder="Nationality"><br>
+    <input type="text" name="phone" placeholder="Phone"><br>
+    <input type="email" name="email" placeholder="Email"><br>
+    <input type="text" name="productType" placeholder="Product Type"><br>
+    <textarea name="customRequest" placeholder="Special Request"></textarea><br>
+    <textarea name="notes" placeholder="Notes"></textarea><br>
+    <label><input type="checkbox" name="declaration" required> I declare all data is accurate</label><br>
+    <input type="hidden" name="agentID" id="agentID">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const agentID = params.get('agentID');
+    if (agentID) {
+      document.getElementById('agentID').value = agentID;
+    }
+  </script>
+</body>
+</html>

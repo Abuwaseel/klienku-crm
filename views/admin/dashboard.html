@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>لوحة تحكم المدير العام</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; direction: rtl; font-family: 'Tahoma', sans-serif; }
+    .dashboard-box {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    h2 {
+      color: #0d6efd;
+      margin-bottom: 1.5rem;
+    }
+    .stat-box {
+      padding: 1rem;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      background-color: #f1f3f5;
+      text-align: center;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-box">
+    <h2>📊 لوحة تحكم المدير العام</h2>
+
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="stat-box">
+          <h4>إجمالي العملاء</h4>
+          <p><strong id="totalClients">0</strong> عميل</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-box">
+          <h4>إجمالي العمولات</h4>
+          <p><strong id="totalCommission">0</strong> ريال</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-box">
+          <h4>نقاط الأحلام الموزعة</h4>
+          <p><strong id="totalPoints">0</strong> نقطة</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <a href="/admin/manage-clients" class="btn btn-outline-info w-100">👥 إدارة العملاء</a>
+      <a href="/admin/rewards" class="btn btn-outline-success w-100">🎁 إدارة المكافآت</a>
+      <a href="/admin/redeem-log" class="btn btn-outline-dark w-100">📜 سجل الاستبدالات</a>
+     <a href="/admin/agents" class="btn btn-outline-warning w-100">🧾 إدارة الوكلاء</a>
+     <a href="/admin/agents/register-log" class="btn btn-outline-secondary w-100">🕓 سجل تسجيل الوكلاء</a>
+<a href="/auth/change-password" class="btn btn-outline-secondary w-100">🔑 تغيير كلمة المرور</a>
+      <a href="/auth/logout" class="btn btn-outline-danger w-100">🚪 تسجيل الخروج</a>
+
+
+    </div>
+  </div>
+
+  <script>
+    fetch('/admin/clients')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('totalClients').innerText = data.totalClients || 0;
+        document.getElementById('totalCommission').innerText = data.totalCommission || 0;
+        document.getElementById('totalPoints').innerText = data.totalPoints || 0;
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: "واجهة برمجة تطبيقات Klienku CRM (AR)"
+  version: "1.0.0"
+paths:
+  /clients:
+    post:
+      summary: "إضافة عميل جديد"
+      description: "إرسال بيانات العميل لحفظها في النظام"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  example: "أحمد"
+                lastName:
+                  type: string
+                  example: "الأنصاري"
+                nationality:
+                  type: string
+                  example: "سعودي"
+                phone:
+                  type: string
+                  example: "+966501234567"
+                email:
+                  type: string
+                  example: "client@example.com"
+                product:
+                  type: string
+                  example: "وحدة سكنية"
+                referralCode:
+                  type: string
+                  example: "AGT2024"
+                notes:
+                  type: string
+                  example: "مهتم بالشراء في سبتمبر"
+      responses:
+        '201':
+          description: "تمت إضافة العميل بنجاح"
+        '500':
+          description: "حدث خطأ أثناء المعالجة"

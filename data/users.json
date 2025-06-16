@@ -1,0 +1,13 @@
+[
+  {
+    "email": "admin@klienku.com",
+    "password": "admin123",
+    "role": "admin"
+  },
+  {
+    "email": "agent1@klienku.com",
+    "password": "agent123",
+    "role": "agent",
+    "agentID": "AGENT123"
+  }
+]

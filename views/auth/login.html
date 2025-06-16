@@ -1,0 +1,10 @@
+<!-- صفحة تسجيل الدخول -->
+<form action="/auth/login" method="POST">
+  <input type="email" name="email" placeholder="البريد الإلكتروني" required />
+  <input type="password" name="password" placeholder="كلمة المرور" required />
+  <select name="role">
+    <option value="agent">وكيل</option>
+    <option value="admin">مدير</option>
+  </select>
+  <button type="submit">دخول</button>
+</form>

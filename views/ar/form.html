@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>نموذج تسجيل عميل</title>
+</head>
+<body>
+  <h1>نموذج تسجيل عميل</h1>
+  <form action="/clients" method="POST">
+    <input type="text" name="firstName" placeholder="الاسم الأول" required><br>
+    <input type="text" name="lastName" placeholder="اسم العائلة" required><br>
+    <input type="text" name="nationality" placeholder="الجنسية"><br>
+    <input type="text" name="phone" placeholder="رقم الهاتف"><br>
+    <input type="email" name="email" placeholder="البريد الإلكتروني"><br>
+    <input type="text" name="productType" placeholder="نوع المنتج المرغوب"><br>
+    <textarea name="customRequest" placeholder="طلب خاص إن وُجد"></textarea><br>
+    <textarea name="notes" placeholder="ملاحظات"></textarea><br>
+    <label><input type="checkbox" name="declaration" required> أقر بأن جميع المعلومات المدخلة صحيحة</label><br>
+    <input type="hidden" name="agentID" id="agentID">
+    <button type="submit">إرسال</button>
+  </form>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const agentID = params.get('agentID');
+    if (agentID) {
+      document.getElementById('agentID').value = agentID;
+    }
+  </script>
+</body>
+</html>

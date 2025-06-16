@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Pendaftaran Klien</title>
+</head>
+<body>
+  <h1>Formulir Pendaftaran Klien</h1>
+  <form action="/clients" method="POST">
+    <input type="text" name="firstName" placeholder="Nama Depan" required><br>
+    <input type="text" name="lastName" placeholder="Nama Belakang" required><br>
+    <input type="text" name="nationality" placeholder="Kewarganegaraan"><br>
+    <input type="text" name="phone" placeholder="Nomor Telepon"><br>
+    <input type="email" name="email" placeholder="Email"><br>
+    <input type="text" name="productType" placeholder="Jenis Produk"><br>
+    <textarea name="customRequest" placeholder="Permintaan Khusus"></textarea><br>
+    <textarea name="notes" placeholder="Catatan"></textarea><br>
+    <label><input type="checkbox" name="declaration" required> Saya menyatakan semua data sudah benar</label><br>
+    <input type="hidden" name="agentID" id="agentID">
+    <button type="submit">Kirim</button>
+  </form>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const agentID = params.get('agentID');
+    if (agentID) {
+      document.getElementById('agentID').value = agentID;
+    }
+  </script>
+</body>
+</html>

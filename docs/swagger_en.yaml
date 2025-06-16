@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: "Klienku CRM API (EN)"
+  version: "1.0.0"
+paths:
+  /clients:
+    post:
+      summary: "Add New Client"
+      description: "Send client data to store it in the system"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  example: "John"
+                lastName:
+                  type: string
+                  example: "Doe"
+                nationality:
+                  type: string
+                  example: "Indonesian"
+                phone:
+                  type: string
+                  example: "+628123456789"
+                email:
+                  type: string
+                  example: "client@example.com"
+                product:
+                  type: string
+                  example: "Tourism Package"
+                referralCode:
+                  type: string
+                  example: "AGT2024"
+                notes:
+                  type: string
+                  example: "Interested in villa"
+      responses:
+        '201':
+          description: "Client added successfully"
+        '500':
+          description: "Server error"

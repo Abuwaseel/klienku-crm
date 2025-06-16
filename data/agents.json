@@ -1,0 +1,54 @@
+[
+  {
+    "agentID": "A001",
+    "firstName": "أحمد",
+    "middleName": "عبدالله",
+    "lastName": "العلي",
+    "fullName": "أحمد عبدالله العلي",
+    "nationality": "سعودي",
+    "residencyCountry": "إندونيسيا",
+    "address": "جاكرتا، شارع سوديرمان",
+    "email": "ahmed@example.com",
+    "phone": "08123456789",
+    "bankName": "BSI",
+    "bankBranch": "جاكرتا الرئيسية",
+    "accountNumber": "1234567890",
+    "ibanOrSwift": "BSIIDJA123",
+    "referrerID": null,
+    "internalNotes": "",
+    "status": "نشط",
+    "level": "A",
+    "joinDate": "2025-06-16T08:00:00.000Z",
+    "password": "1234"
+  },
+  {
+    "agentID": "B001",
+    "firstName": "فاطمة",
+    "middleName": "سعيد",
+    "lastName": "الحربي",
+    "fullName": "فاطمة سعيد الحربي",
+    "nationality": "إندونيسية",
+    "residencyCountry": "إندونيسيا",
+    "address": "باندونغ، شارع آسيا أفريكا",
+    "email": "fatimah@example.com",
+    "phone": "08234567890",
+    "bankName": "Mandiri",
+    "bankBranch": "باندونغ",
+    "accountNumber": "9876543210",
+    "ibanOrSwift": "MANDIDJA321",
+    "referrerID": "A001",
+    "internalNotes": "تم تسجيلها من خلال وكيل A001",
+    "status": "تحت المراجعة",
+    "level": "B",
+    "joinDate": "2025-06-16T08:30:00.000Z",
+    "password": "1234"
+  }
+{
+  "id": "A001",
+  "firstName": "أحمد",
+  "lastName": "القحطاني",
+  "status": "نشط",
+  "createdAt": "2025-06-16T12:30:00Z"
+}
+
+]

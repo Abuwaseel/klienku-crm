@@ -1,0 +1,14 @@
+[
+  {
+    "username": "admin",
+    "fullName": "المدير العام",
+    "email": "admin@klienku.com",
+    "password": "admin123"
+  },
+  {
+    "username": "manager1",
+    "fullName": "مشرف النظام",
+    "email": "manager1@klienku.com",
+    "password": "secret123"
+  }
+]
